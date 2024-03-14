@@ -156,36 +156,6 @@ public class RegisterSeller extends HttpServlet {
         return UUID.randomUUID().toString();
     }
 
-    private void sendConfirmationEmail(String email, String confirmationCode) {
-        final String username = "fuholafood@gmail.com";
-        final String password = "buoc unuo tibx rrxj";
-
-        Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.port", "587");
-
-        Session session = Session.getInstance(props,
-                new javax.mail.Authenticator() {
-            @Override
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(username, password);
-            }
-        });
-
-        try {
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(username));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
-            message.setSubject("Confirm password reset.");
-            message.setText("Code: " + confirmationCode);
-
-            Transport.send(message);
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        }
-    }
 
     /**
      * Returns a short description of the servlet.
