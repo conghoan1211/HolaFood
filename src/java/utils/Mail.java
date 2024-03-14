@@ -20,8 +20,8 @@ import javax.mail.internet.MimeMessage;
 public class Mail {
     
     public static boolean sendMail(String userRecieveEmail, String title, String content) {
-        String APP_EMAIL = "fuholafood@gmail.com"; // our email
-        String APP_PASSWORD = "buoc unuo tibx rrxj"; // our password
+        String APP_EMAIL = ""; // our email
+        String APP_PASSWORD = ""; // our password
 
         // Get properties object
         Properties props = new Properties();
